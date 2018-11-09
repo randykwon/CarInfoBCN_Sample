@@ -1,4 +1,4 @@
-** [Attention!!!] This is only for test & learn Hyperledger fabric & Composor!**
+**[Please read!!!] This is only for test & learn Hyperledger fabric & Composor!**
 
 # Senario
 
@@ -19,12 +19,14 @@ Based on the data analyzed through this analysis, we will sell cars with accurat
 ![Car Info BCN](./images/bcn03.png)
 
 ## Participants
-| Participants | Issue |
-|---|:---:|
+| Participants | Issue | Issue |
+|---|:---:|:---:|
 | `Kertz` | Cost Increase |  |
 | `Car Repair Company` | predict accurate parts demand |  |
 | `User Car Dealer` | Need trusted Record |  |
-
+| `User Car Buyer` | Need trusted Record | to-be |
+| `Insurance` | Need trusted Record |  to-be|
+| `Personal Car owner` | Need benefit for Information Providing | to-be |
 
 # Car Operation Information Sharing BCN
 
@@ -40,85 +42,102 @@ Hyperledger composer
 
 # Models
 ## Assets
- 
+
+
 ### CarInfo
- 
-asset CarInfo identified by carinfoId { <br>
-  o String carinfoId <br>
-  o OperatingData OperatingData optional <br>
-  o String[] basic_car_info <br>
-  o MaintenanceData mData optional <br>
-  o String[] driver_info optional <br>
-  o Status currunt_status default="None" <br>
-} <br> <br>
+
+```
+asset CarInfo identified by carinfoId { 
+  o String carinfoId 
+  o OperatingData OperatingData optional
+  o String[] basic_car_info 
+  o MaintenanceData mData optional 
+  o String[] driver_info optional
+  o Status currunt_status default="None" 
+} 
+```
 
 ### Contract
 
+```
+asset Contact identified by contractId { 
+  o String contractId 
 
-asset Contact identified by contractId { <br>
-  o String contractId <br>
- <br>
-  o String currentStatus <br>
-  o String driverInformation <br>
-  o String insuranceInformation <br>
-  --> CarInfo carinformation optional <br>
-} <br> <br>
-
+  o String currentStatus 
+  o String driverInformation 
+  o String insuranceInformation 
+  --> CarInfo carinformation optional 
+}
+```
 
 ## Participants
 
 ### abstract CarInfoSharingParticipant
- 
- abstract participant CarInfoSharingParticipant identified by participantKey {<br>
-   o String participantKey<br>
-   o Contact contact<br>
- }<br>
+```
+ abstract participant CarInfoSharingParticipant identified by participantKey {
+   o String participantKey
+   o Contact contact
+    }
+```
 
 ### participant RentalCompany
-participant RentalCompany extends CarInfoSharingParticipant {<br>
+```
+participant RentalCompany extends CarInfoSharingParticipant {
    
- }<br>
+ }
+```
+
 ### participant CarRepirShop
- participant CarRepirShop extends CarInfoSharingParticipant {<br>
-   <br>
+```
+ participant CarRepirShop extends CarInfoSharingParticipant {
+   
  }
-### participant UsedCarDealer
-participant UsedCarDealer extends CarInfoSharingParticipant {<br>
-   <br>
- }
- <br>
+```
  
+### participant UsedCarDealer
+```
+participant UsedCarDealer extends CarInfoSharingParticipant {
+ 
+ }
+ ```
 ### expand participants
+```
 Insurance<br>
-Usedcar buyer<br>
-Pernal Car Owner <br>
-Auto Parts Factory <br>
+Usedcar buyer
+Pernal Car Owner 
+Auto Parts Factory 
+```
 
 ## Transaction
 
 ### CreateContract
-
- transaction CreateContract { <br>
-   o String driverInformation <br>
-   o String insuranceInformation <br>
-   o DateTime contractStartDate <br>
-   o DateTime contractEndDate <br>
- } <br> <br>
+```
+ transaction CreateContract { 
+   o String driverInformation 
+   o String insuranceInformation 
+   o DateTime contractStartDate 
+   o DateTime contractEndDate 
+ } 
+```
+ 
 ### CreateCarOperationData
+```
+ transaction CreateCarOperationData { 
+   o String carinfoId 
+   o OperatingData OperatingData 
+   o DateTime checkTime 
+ } 
+```
 
- transaction CreateCarOperationData { <br>
-   o String carinfoId <br>
-   o OperatingData OperatingData <br>
-   o DateTime checkTime <br>
- } <br> <br>
 
 ### CreateMaintenanceData
-
- transaction CreateMaintenanceData { <br>
-   o String carinfoId <br>
-   o MaintenanceData mData <br>
-   o DateTime checkTime <br> <br>
- } <br>
+```
+ transaction CreateMaintenanceData { 
+   o String carinfoId 
+   o MaintenanceData mData 
+   o DateTime checkTime <br> 
+ }  ]
+```
  
  
 ## References
