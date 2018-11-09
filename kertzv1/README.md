@@ -16,9 +16,8 @@
 1. Mac <https://hyperledger.github.io/composer/latest/installing/installing-prereqs.html#macos>
 
 ### Hyperledger Composer install
-1. Download
-2. install
-3. 
+1. Download & install
+<https://hyperledger.github.io/composer/latest/installing/development-tools.html>
 
 ## Getting Started to Code.
 Go to your build directory.
