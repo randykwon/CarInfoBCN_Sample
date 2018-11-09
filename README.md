@@ -89,10 +89,10 @@ participant UsedCarDealer extends CarInfoSharingParticipant {<br>
  <br>
  
 ### expand participants
-Insurance
-Usedcarbuyer
-PernalCarOwner
-AutoPartsCompany
+Insurance<br>
+Usedcar buyer<br>
+Pernal Car Owner <br>
+Auto Parts Factory <br>
 
 ## Transaction
 
