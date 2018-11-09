@@ -1,0 +1,39 @@
+
+/**
+ * Write your model definitions here
+ */
+
+ namespace com.kertz.participant
+
+ abstract participant CarInfoSharingParticipant identified by participantKey {
+   o String participantKey
+   o Contact contact
+ }
+
+ concept Contact {
+   o String telephone
+   o String address
+   o String username
+   o String email
+ }
+participant RentalCompany extends CarInfoSharingParticipant {
+   
+ }
+
+ participant CarRepirShop extends CarInfoSharingParticipant {
+   
+ }
+
+participant UsedCarDealer extends CarInfoSharingParticipant {
+   
+ }
+ 
+ participant Insurance extends CarInfoSharingParticipant {
+   
+ }
+ participant KertzOperating extends CarInfoSharingParticipant {
+   
+ }
+ participant KertzNetworkAdmin extends CarInfoSharingParticipant {
+
+ }

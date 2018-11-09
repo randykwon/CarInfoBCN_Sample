@@ -1,0 +1,41 @@
+namespace com.kertz.contract
+
+import com.kertz.car.CarInfo
+
+/** Rental, Lease, Sharing contract defintions */
+
+asset Contact identified by contractId {
+  o String contractId
+
+  o String currentStatus
+  o String driverInformation
+  o String insuranceInformation
+  --> CarInfo carinformation optional
+}
+
+concept ContactInformation {
+  o String contactNumber
+  o String startDate
+  o String endDate
+  o String contractBody
+}
+
+/**
+Contract Creation Transaction defintions
+Kertz 
+ */
+ transaction CreateContract {
+   o String driverInformation
+   o String insuranceInformation
+   o DateTime contractStartDate
+   o DateTime contractEndDate
+ }
+
+ /**
+  Event Creation 
+  nofify to partners
+  */
+
+ event ContractCreated {
+   o String contractId
+ }

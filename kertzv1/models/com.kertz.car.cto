@@ -1,0 +1,81 @@
+
+/**
+ * Write your model definitions here
+ */
+
+namespace com.kertz.car
+
+/** car asset definitions */
+
+asset CarInfo identified by carinfoId {
+  o String carinfoId
+  o OperatingData OperatingData optional
+  o String[] basic_car_info
+  o MaintenanceData mData optional
+  o String[] driver_info optional
+  o Status currunt_status default="None"
+}
+
+/** car operation data definitions */
+concept OperatingData {
+  o String[] enginestatus
+  o String[] operatingtimeA
+  o String[] environmentinfomation
+}
+
+/** car maintenanceData record definitions */
+concept MaintenanceData {
+  o String[] maintenanceData
+}
+
+/** car status stucture definitions */
+
+enum Status {
+  o Rental
+  o Lease
+  o Sharing
+  o Available
+  o OnRepair
+  o None // at first
+}
+
+
+/**
+Contract Car Operating Data Transaction defintions
+ */
+ transaction CreateCarOperationData {
+   o String carinfoId
+   o OperatingData OperatingData
+   o DateTime checkTime
+   
+ }
+
+ /**
+Contract Car MaintenanceData Data Transaction defintions
+ */
+ transaction CreateMaintenanceData {
+   o String carinfoId
+   o MaintenanceData mData
+   o DateTime checkTime
+
+ }
+
+
+ /**
+  Event Creation 
+  OperatingData event
+  */
+
+ event OPSDatCreated {
+   o String carinfoId
+ }
+
+  /**
+  Event Creation 
+  MaintenanceData event
+  */
+
+ event MTDatCreated {
+   o String carinfoId
+ }
+
