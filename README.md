@@ -65,6 +65,34 @@ asset Contact identified by contractId { <br>
 } <br> <br>
 
 
+## Participants
+
+### abstract CarInfoSharingParticipant
+ 
+ abstract participant CarInfoSharingParticipant identified by participantKey {<br>
+   o String participantKey<br>
+   o Contact contact<br>
+ }<br>
+
+### participant RentalCompany
+participant RentalCompany extends CarInfoSharingParticipant {<br>
+   
+ }<br>
+### participant CarRepirShop
+ participant CarRepirShop extends CarInfoSharingParticipant {<br>
+   <br>
+ }
+### participant UsedCarDealer
+participant UsedCarDealer extends CarInfoSharingParticipant {<br>
+   <br>
+ }
+ <br>
+ 
+### expand participants
+Insurance
+Usedcarbuyer
+PernalCarOwner
+AutoPartsCompany
 
 ## Transaction
 
