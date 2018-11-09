@@ -1,6 +1,5 @@
 ** [Attention!!!] This is only for test & learn Hyperledger fabric & Composor!**
 
-![Car Info BCN](./images/bcn00.png)
 # Senario
 
 Kertz is a car rental company and has more than 4,000 branches worldwide.
@@ -12,6 +11,8 @@ Even with the same car model, it seems that unexpected problems are occurring de
 
 In order to analyze this, it is necessary to acquire more data of the car in operation.
 Based on the data analyzed through this analysis, we will sell cars with accurate information to used car dealers at the right time.
+
+![Car Info BCN](./images/bcn00.png)
 
 # Kertz & Partners Agony 
 
